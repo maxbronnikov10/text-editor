@@ -11,12 +11,13 @@ namespace TextEditor
     {
         public void SaveFile(string path, string text)
         {
-            File.AppendAllText(path, text);
+           if(!string.IsNullOrEmpty(path)) File.AppendAllText(path, text);
         }
 
         public string OpenFile(string path)
         {
-            return File.ReadAllText(path);
+            if (!string.IsNullOrEmpty(path)) return File.ReadAllText(path);
+            return null;
         }
 
         public void Exit()

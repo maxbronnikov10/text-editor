@@ -149,6 +149,7 @@ namespace TextEditor
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "TXT file (*.txt)|*.txt";
             openFileDialog.ShowDialog();
+            if (openFileDialog.FileName == "") return;
             path = openFileDialog.FileName;
             mainFrame.Text = model.OpenFile(path);
         }
